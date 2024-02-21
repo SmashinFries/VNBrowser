@@ -1,9 +1,11 @@
-{
-  "expo": {
-    "name": "VNBrowser",
-    "slug": "VNBrowser",
-    "version": "1.0.0",
-    "orientation": "portrait",
+import { ExpoConfig, ConfigContext } from 'expo/config';
+
+export default ({ config }: ConfigContext): ExpoConfig => ({
+  ...config,
+  slug: 'VNBrowser',
+  name: 'VNBrowser',
+  "version": "1.0.0",
+  "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "splash": {
@@ -26,5 +28,4 @@
     "web": {
       "favicon": "./assets/favicon.png"
     }
-  }
-}
+});
