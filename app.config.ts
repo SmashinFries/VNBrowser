@@ -23,6 +23,7 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
 			foregroundImage: './assets/adaptive-icon.png',
 			backgroundColor: '#ffffff',
 		},
+		package: 'com.vnbrowser',
 		intentFilters: [
 			{
 				action: 'VIEW',
@@ -43,6 +44,11 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
 	updates: {
 		checkAutomatically: 'ON_LOAD',
 		enabled: true,
+	},
+	extra: {
+		eas: {
+			projectId: '88d601c0-7725-4095-976f-72f16e459727',
+		},
 	},
 	plugins: [
 		'expo-router',
