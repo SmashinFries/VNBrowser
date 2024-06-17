@@ -40,6 +40,10 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
 		favicon: './assets/favicon.png',
 		bundler: 'metro',
 	},
+	updates: {
+		checkAutomatically: 'ON_LOAD',
+		enabled: true,
+	},
 	plugins: [
 		'expo-router',
 		'expo-localization',
