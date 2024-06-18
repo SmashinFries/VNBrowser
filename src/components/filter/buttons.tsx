@@ -257,7 +257,7 @@ export const TagTraitButton = ({
 						isIn
 						onPress={() => {
 							onValueChange(val);
-							console.log('tag:', val);
+							// console.log('tag:', val);
 						}}
 					/>
 				))}
@@ -271,7 +271,7 @@ export const TagTraitButton = ({
 						isNotIn
 						onPress={() => {
 							onValueChange(val);
-							console.log('tag:', val);
+							// console.log('tag:', val);
 						}}
 					/>
 				))}

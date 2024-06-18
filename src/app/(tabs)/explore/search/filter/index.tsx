@@ -50,7 +50,7 @@ const FilterPage = () => {
 				);
 				break;
 			case 'extlink':
-				console.log(type, val);
+				// console.log(type, val);
 				updateFilter('extlink', _.find(ExternalLinks, { label: val })?.name);
 				break;
 			case 'voiced':

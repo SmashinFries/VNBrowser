@@ -235,7 +235,7 @@ export const searchVNs = async (
 ) => {
 	const params: VNParams = formatRequest(page, sort, reverse, filter);
 	const { data, status } = await VNClient.post<VNListResponse>('/vn', params);
-	console.log('Searched!');
+	// console.log(`page ${page}` + 'Searched!');
 	return data;
 };
 

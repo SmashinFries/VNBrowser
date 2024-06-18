@@ -136,11 +136,11 @@ export const useVNFilterStore = create<VNFilterStoreState & VNFilterStoreActions
 			const included_tags = state.filter?.tag_in ?? [];
 			if (included_tags?.includes(id)) {
 				const newIncluded = included_tags.filter((tag) => tag !== id);
-				console.log({
-					...state.filter,
-					tag_not_in: [...excluded_tags, id],
-					tag_in: newIncluded.length > 0 ? newIncluded : undefined,
-				});
+				// console.log({
+				// 	...state.filter,
+				// 	tag_not_in: [...excluded_tags, id],
+				// 	tag_in: newIncluded.length > 0 ? newIncluded : undefined,
+				// });
 				return {
 					filter: {
 						...state.filter,
@@ -150,10 +150,10 @@ export const useVNFilterStore = create<VNFilterStoreState & VNFilterStoreActions
 				};
 			} else if (excluded_tags?.includes(id)) {
 				const newExcluded = excluded_tags.filter((tag) => tag !== id);
-				console.log('new filter:', {
-					...state.filter,
-					tag_not_in: newExcluded.length > 0 ? newExcluded : undefined,
-				});
+				// console.log('new filter:', {
+				// 	...state.filter,
+				// 	tag_not_in: newExcluded.length > 0 ? newExcluded : undefined,
+				// });
 				return {
 					filter: {
 						...state.filter,
@@ -161,10 +161,10 @@ export const useVNFilterStore = create<VNFilterStoreState & VNFilterStoreActions
 					},
 				};
 			} else {
-				console.log('new filter:', {
-					...state.filter,
-					tag_in: [...included_tags, id],
-				});
+				// console.log('new filter:', {
+				// 	...state.filter,
+				// 	tag_in: [...included_tags, id],
+				// });
 				return {
 					filter: {
 						...state.filter,
