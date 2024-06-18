@@ -40,11 +40,13 @@ export const PlatformCardBanner = ({
 		>
 			{platforms
 				.filter((element, index) =>
-					ownedPlatforms ? index <= 3 && ownedPlatforms.includes(element) : index <= 3,
+					ownedPlatforms && ownedPlatforms.length > 0
+						? index < 3 && ownedPlatforms.includes(element)
+						: index < 3,
 				)
 				.map((platform, idx) => (
 					<View key={idx} style={{ marginHorizontal: 1 }}>
-						<PlatformSVG name={platform} height={14} width={14} />
+						<PlatformSVG name={platform} height={16} width={16} />
 					</View>
 				))}
 		</View>
@@ -69,7 +71,7 @@ export const VNCard = (props: VNCardProps) => {
 	const card_height = props.height ?? 210;
 	const { colors } = useTheme();
 	const { allowEro, sexualLevel } = useSettingsStore();
-	const [isBlurred, setIsBlurred] = useState(true);
+	const [isBlurred, setIsBlurred] = useState(props.coverImg?.sexual > sexualLevel);
 
 	return (
 		<Pressable
@@ -78,7 +80,6 @@ export const VNCard = (props: VNCardProps) => {
 			android_ripple={
 				props.navigate ? { color: colors.primary, foreground: true } : undefined
 			}
-			// disabled={props.disablePress}
 			style={{
 				marginHorizontal: 10,
 				overflow: 'hidden',
@@ -93,7 +94,10 @@ export const VNCard = (props: VNCardProps) => {
 				contentFit="cover"
 				transition={800}
 				blurRadius={
-					(isBlurred && props.coverImg?.sexual > sexualLevel) || !allowEro ? 15 : 0
+					(isBlurred && props.coverImg?.sexual > sexualLevel) ||
+					(!allowEro && props.coverImg?.sexual > 0)
+						? 15
+						: 0
 				}
 				source={{ uri: props.coverImg?.url ?? '' }}
 				style={{
