@@ -9,7 +9,7 @@ import {
 	Surface,
 	Text,
 } from 'react-native-paper';
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import { VNReleasesResponse, VNUserListResponse } from '@/api/vndb/types';
 import { Accordion } from '@/components/accordion';
 import { View } from 'react-native';
@@ -34,15 +34,28 @@ const VNReleases = ({ data, olang, listReleases }: VNReleasesProps) => {
 	const languages = _.uniq(data.map((rel) => rel.languages.flatMap((el) => el.lang)).flat());
 	// const languages = _.uniqW
 
-	const OlangReleases = data.filter(
-		(rel) =>
-			rel.languages.find((val) => val.lang === olang) &&
-			_.some(rel.platforms, (el) => _.includes(ownedPlatforms, el)),
+	const OlangReleases = useMemo(
+		() =>
+			data
+				.filter((rel) =>
+					rel.languages.find((val) => val.lang === olang) && ownedPlatforms.length > 0
+						? _.some(rel.platforms, (el) => _.includes(ownedPlatforms, el))
+						: true,
+				)
+				.filter((_, idx) => idx < 5),
+		[data, olang],
 	);
-	const ENReleases = data.filter(
-		(rel) =>
-			rel.languages.find((val) => val.lang === 'en') &&
-			_.some(rel.platforms, (el) => _.includes(ownedPlatforms, el)),
+	const ENReleases = useMemo(
+		() =>
+			data
+				.filter((rel) =>
+					rel.languages.find((val) => val.lang === 'en') && ownedPlatforms.length > 0
+						? _.some(rel.platforms, (el) => _.includes(ownedPlatforms, el))
+						: true,
+				)
+				.filter((_, idx) => idx < 5),
+		//
+		[data],
 	);
 
 	return (
@@ -81,19 +94,21 @@ const VNReleases = ({ data, olang, listReleases }: VNReleasesProps) => {
 					</View>
 				</Accordion>
 			)}
-			<Accordion
-				title="English"
-				titleVariant="titleMedium"
-				left={<LanguageIcon name={'en'} size={14} style={{ marginHorizontal: 15 }} />}
-				disableSpring
-			>
-				<View style={{ paddingVertical: 10 }}>
-					{ENReleases?.length > 0 &&
-						ENReleases.map((release, idx) => (
-							<ReleaseItem key={idx} release={release} lang="en" />
-						))}
-				</View>
-			</Accordion>
+			{ENReleases?.length > 0 && (
+				<Accordion
+					title="English"
+					titleVariant="titleMedium"
+					left={<LanguageIcon name={'en'} size={14} style={{ marginHorizontal: 15 }} />}
+					disableSpring
+				>
+					<View style={{ paddingVertical: 10 }}>
+						{ENReleases?.length > 0 &&
+							ENReleases.map((release, idx) => (
+								<ReleaseItem key={idx} release={release} lang="en" />
+							))}
+					</View>
+				</Accordion>
+			)}
 			{olang && olang !== 'en' && OlangReleases?.length > 0 && (
 				<Accordion
 					title={olang ? LanguageEnum[olang] : 'Unknown'}

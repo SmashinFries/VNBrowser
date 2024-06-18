@@ -162,7 +162,7 @@ const VNPage = () => {
 				<LoadingView>
 					<Stack.Screen
 						options={{
-							title: '',
+							headerShown: false,
 						}}
 					/>
 				</LoadingView>
@@ -190,22 +190,6 @@ const VNPage = () => {
 				>
 					<View style={{ flex: 1 }}>
 						<VNFrontCover data={data as VNResponse['results'][0]} />
-						{/* <Button
-							onPress={() =>
-								console.log(
-									data?.tags
-										?.filter(
-											(tag) =>
-												tag.category === 'tech' &&
-												tag.rating >= 1 &&
-												tag.spoiler < 1,
-										)
-										.sort((a, b) => b.rating - a.rating).length,
-								)
-							}
-						>
-							TEST
-						</Button> */}
 						<TagsList data={data?.tags} />
 						<UserListActionBar data={userEntry.data} vId={id as string} />
 						<VNPlatforms platforms={data?.platforms} />
@@ -214,11 +198,17 @@ const VNPage = () => {
 								0 && <VNRelations relations={data.relations} />}
 						{char?.data?.results && <VNCharacters data={char.data.results} />}
 						<VNScreenshots screenshots={data?.screenshots} />
-						<VNReleaseCovers covers={releaseCovers.data} />
+						<VNReleaseCovers
+							covers={
+								releaseCovers.data &&
+								releaseCovers.data.filter((_, idx) => idx < 10)
+							}
+						/>
 						{((siteData?.data?.shops && siteData.data.shops.length > 0) ||
 							(data?.extlinks && data.extlinks.length > 0)) && (
 							<VNLinks id={id} shops={siteData?.data?.shops} sites={data?.extlinks} />
 						)}
+						{/* Might be causing bad performance. will need to refactor and cast some magic */}
 						{releases.data?.results && (
 							<VNReleases
 								data={releases.data?.results}
