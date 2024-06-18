@@ -315,6 +315,7 @@ export const AppLanguageSelector = () => {
 								/>
 							))}
 						</ScrollView>
+						<List.Item title={'More coming soon!'} />
 					</Dialog.ScrollArea>
 					<Dialog.Actions>
 						<Button onPress={onDismiss}>Done</Button>
