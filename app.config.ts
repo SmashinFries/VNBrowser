@@ -22,7 +22,7 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
 	android: {
 		adaptiveIcon: {
 			foregroundImage: './assets/adaptive-icon.png',
-			backgroundColor: '#ffffff',
+			// backgroundColor: '#ffffff',
 		},
 		package: IS_DEV ? 'com.vnbrowserdev' : 'com.vnbrowser',
 		intentFilters: [
