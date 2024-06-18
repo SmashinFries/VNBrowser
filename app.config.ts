@@ -1,10 +1,11 @@
 import { ExpoConfig, ConfigContext } from 'expo/config';
+const IS_DEV = process.env.APP_VARIANT === 'development';
 
 export default ({ config }: ConfigContext): ExpoConfig => ({
 	...config,
 	slug: 'VNBrowser',
-	name: 'VNBrowser',
-	scheme: ['vnbrowser', 'vndb'],
+	name: IS_DEV ? 'VNBrowser Dev' : 'VNBrowser',
+	scheme: IS_DEV ? ['vnbrowserdev'] : ['vnbrowser'],
 	version: '1.0.0',
 	orientation: 'portrait',
 	icon: './assets/icon.png',
@@ -12,7 +13,7 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
 	splash: {
 		image: './assets/splash.png',
 		resizeMode: 'contain',
-		backgroundColor: '#ffffff',
+		// backgroundColor: '#ffffff',
 	},
 	assetBundlePatterns: ['**/*'],
 	ios: {
@@ -23,7 +24,7 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
 			foregroundImage: './assets/adaptive-icon.png',
 			backgroundColor: '#ffffff',
 		},
-		package: 'com.vnbrowser',
+		package: IS_DEV ? 'com.vnbrowserdev' : 'com.vnbrowser',
 		intentFilters: [
 			{
 				action: 'VIEW',
