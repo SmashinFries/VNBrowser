@@ -1,6 +1,6 @@
 import { Stack, router } from 'expo-router';
 import { TextInput, View, useWindowDimensions } from 'react-native';
-import { useRef, useState } from 'react';
+import { useCallback, useRef, useState } from 'react';
 import _ from 'lodash';
 import { FlashList } from '@shopify/flash-list';
 import { VNListResponse } from '@/api/vndb/types';
@@ -11,6 +11,7 @@ import { useVNFilterStore } from '@/store/store';
 import { useSearchVNs } from '@/api/vndb/queries/hooks';
 import { useQueryClient } from '@tanstack/react-query';
 import { formatRequest } from '@/api/vndb/format';
+import { Button } from 'react-native-paper';
 
 const SearchPage = () => {
 	const queryClient = useQueryClient();
@@ -84,14 +85,15 @@ const SearchPage = () => {
 				}}
 			>
 				<FlashList
-					data={data?.pages[0].results}
+					data={data?.pages.flatMap((page) => page.results) ?? []}
 					renderItem={RenderItem}
 					keyExtractor={(item) => item.id}
 					numColumns={3}
+					removeClippedSubviews
 					estimatedItemSize={100}
-					onEndReached={() =>
-						data?.pages[0].more ? fetchNextPage() : console.log('END')
-					}
+					onEndReached={() => data?.pages[0].more && fetchNextPage()}
+					onEndReachedThreshold={0.75}
+					// onEndReached={() => console.log('Reached end:', data?.pages[0].more)}
 				/>
 			</View>
 		</View>

@@ -152,8 +152,10 @@ export const useSearchVNs = (
 		queryFn: ({ pageParam }) =>
 			searchVNs(pageParam, sort, reverse, { ...filter, search: search }),
 		initialPageParam: 1,
-		getNextPageParam: (lastPage, pages, lastPageParams) =>
-			lastPage.more ? lastPageParams + 1 : undefined,
+		getNextPageParam: (lastPage, pages, lastPageParams) => {
+			// console.log(lastPage.more, lastPageParams + 1);
+			return lastPage.more ? lastPageParams + 1 : undefined;
+		},
 	});
 
 export const useVNUserList = (
