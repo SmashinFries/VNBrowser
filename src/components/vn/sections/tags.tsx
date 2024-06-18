@@ -20,6 +20,7 @@ export const TagsList = ({ data }: TagsListProps) => {
 							(tag) => tag.category !== 'ero' && tag.rating >= 1 && tag.spoiler < 1,
 						)
 						.sort((a, b) => b.rating - a.rating)
+						.filter((_, idx) => idx < 10)
 				: data,
 		[isTrait, data],
 	);
