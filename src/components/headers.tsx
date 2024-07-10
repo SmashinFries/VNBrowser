@@ -332,7 +332,7 @@ export const FadeHeader = ({ BgImage, ...props }: FadeHeaderProps) => {
 		<Animated.View
 			entering={FadeIn}
 			exiting={FadeOut}
-			style={{ backgroundColor: colors.surfaceContainerLow }}
+			style={{ backgroundColor: colors.surface }}
 		>
 			<Stack.Screen
 				options={{

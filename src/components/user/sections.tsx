@@ -57,7 +57,7 @@ export const VNDBProfile = () => {
 	return (
 		<ProfileBanner type={vndb.banner ? 'banner' : undefined}>
 			<LinearGradient
-				colors={['rgba(0,0,0,0.2)', colors.surfaceContainerLow]}
+				colors={['rgba(0,0,0,0.2)', colors.surface]}
 				locations={[0, 0.22]}
 				style={{
 					position: 'absolute',

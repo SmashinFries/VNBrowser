@@ -62,7 +62,7 @@ const UserListView = ({ data, onNextPage, refetch }: UserListViewProps) => {
 		<View
 			style={{
 				flex: 1,
-				backgroundColor: colors.surfaceContainerLow,
+				backgroundColor: colors.surface,
 				height: '100%',
 				width: '100%',
 			}}

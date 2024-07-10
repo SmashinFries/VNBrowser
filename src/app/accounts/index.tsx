@@ -9,7 +9,7 @@ const AccountsPage = () => {
 	const { colors } = useAppTheme();
 	const { vndb } = useUserAuthStore();
 	return (
-		<View style={{ flex: 1, backgroundColor: colors.surfaceContainerLow }}>
+		<View style={{ flex: 1, backgroundColor: colors.surface }}>
 			<List.Item
 				title="VNDB"
 				right={(props) =>

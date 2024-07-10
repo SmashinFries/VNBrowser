@@ -84,7 +84,7 @@ const VNFrontCover = ({ data }: { data: VNResponse['results'][0] }) => {
 					variant="titleSmall"
 					style={{
 						paddingVertical: 10,
-						color: colors.onSurfaceVariant,
+						color: colors.surfaceVariant,
 						textTransform: 'capitalize',
 					}}
 				>
@@ -104,7 +104,7 @@ const VNFrontCover = ({ data }: { data: VNResponse['results'][0] }) => {
 						variant="titleSmall"
 						style={{
 							paddingVertical: 10,
-							color: colors.onSurfaceVariant,
+							color: colors.surfaceVariant,
 						}}
 					>
 						<Icon source="timer-outline" size={14} />

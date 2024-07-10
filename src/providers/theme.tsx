@@ -52,9 +52,6 @@ export function Material3ThemeProvider({
                         ...theme.dark,
                         surface: '#000',
                         background: '#000',
-                        surfaceContainerLow: '#000',
-                        surfaceContainerHigh: '#000',
-                        surfaceContainer: '#000',
                     }
                   : theme.dark,
           }

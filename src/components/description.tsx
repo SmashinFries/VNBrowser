@@ -63,10 +63,7 @@ export const ExpandableDescription = ({ initialHeight, text }: AnimateHeightProp
 				</View>
 				{!isExpanded && (
 					<LinearGradient
-						colors={[
-							dark ? 'rgba(0,0,0,0)' : 'rgba(255,255,255,0)',
-							colors.surfaceContainerLow,
-						]}
+						colors={[dark ? 'rgba(0,0,0,0)' : 'rgba(255,255,255,0)', colors.surface]}
 						locations={
 							Math.floor(currentHeight) < Math.floor(totalHeight) ? [0.5, 1] : [1, 1]
 						}

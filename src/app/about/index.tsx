@@ -64,7 +64,7 @@ const AboutPage = () => {
 	} = useAppUpdater();
 	const { colors } = useAppTheme();
 	return (
-		<View style={{ flex: 1, backgroundColor: colors.surfaceContainerLow }}>
+		<View style={{ flex: 1, backgroundColor: colors.surface }}>
 			<List.Item
 				title={'Version'}
 				description={`${Constants?.expoConfig?.version}`}

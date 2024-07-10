@@ -126,7 +126,7 @@ export const ListEntrySheet = React.forwardRef<BottomSheetModalMethods, ListEntr
 					ref={ref}
 					index={0}
 					snapPoints={snapPoints}
-					backgroundStyle={{ backgroundColor: colors.surfaceContainerLowest }}
+					backgroundStyle={{ backgroundColor: colors.surface }}
 					handleIndicatorStyle={{ backgroundColor: colors.onSurfaceVariant }}
 					backdropComponent={(props) => (
 						<BottomSheetBackdrop
