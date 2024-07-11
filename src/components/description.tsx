@@ -2,15 +2,16 @@ import { useAppTheme } from '@/providers/theme';
 import { highlightUrls } from '@/utils/text';
 import { LinearGradient } from 'expo-linear-gradient';
 import { ReactNode, useCallback, useEffect, useState } from 'react';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, View, ViewStyle } from 'react-native';
 import { Icon, IconButton, Text, useTheme } from 'react-native-paper';
 import Animated, { useAnimatedStyle, useSharedValue, withSpring } from 'react-native-reanimated';
 
 type AnimateHeightProps = {
 	initialHeight: number;
 	text: string | null | undefined;
+	parentStyle?: ViewStyle;
 };
-export const ExpandableDescription = ({ initialHeight, text }: AnimateHeightProps) => {
+export const ExpandableDescription = ({ initialHeight, text, parentStyle }: AnimateHeightProps) => {
 	const { colors, dark } = useAppTheme();
 	const height = useSharedValue(initialHeight);
 	const [totalHeight, setTotalHeight] = useState<number>(0);
@@ -44,7 +45,7 @@ export const ExpandableDescription = ({ initialHeight, text }: AnimateHeightProp
 	if (!text) return null;
 
 	return (
-		<View style={{ marginVertical: 25 }}>
+		<View style={[parentStyle]}>
 			<Animated.View style={[animatedStyles, { overflow: 'hidden' }]}>
 				<View style={[StyleSheet.absoluteFill, { bottom: 'auto', paddingBottom: 10 }]}>
 					<View

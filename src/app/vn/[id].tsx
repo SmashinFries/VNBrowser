@@ -125,9 +125,14 @@ const VNFrontCover = ({ data }: { data: VNResponse['results'][0] }) => {
 					onValueChange={(val) => setTitleSelection(val as 'title' | 'alttitle')}
 				/>
 			)}
+			<TagsList data={data?.tags} />
 			{/* <TagView tags={data.tags.sort((a, b) => b.rating - a.rating) ?? null} /> */}
 			{data.description ? (
-				<ExpandableDescription initialHeight={100} text={data.description} />
+				<ExpandableDescription
+					initialHeight={100}
+					text={data.description}
+					parentStyle={{ marginBottom: 20 }}
+				/>
 			) : null}
 		</View>
 	);
@@ -190,7 +195,7 @@ const VNPage = () => {
 				>
 					<View style={{ flex: 1 }}>
 						<VNFrontCover data={data as VNResponse['results'][0]} />
-						<TagsList data={data?.tags} />
+
 						<UserListActionBar data={userEntry.data} vId={id as string} />
 						<VNPlatforms platforms={data?.platforms} />
 						{data?.relations &&

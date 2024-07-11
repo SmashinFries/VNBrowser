@@ -1,5 +1,6 @@
 import { TagTraitType, VNResponse, VNTag, VNTrait } from '@/api/vndb/types';
 import { TagDescDialog } from '@/components/dialogs';
+import { Tag } from '@/components/tag';
 import { useMemo, useState } from 'react';
 import { ScrollView } from 'react-native';
 import { Chip } from 'react-native-paper';
@@ -35,12 +36,12 @@ export const TagsList = ({ data }: TagsListProps) => {
 			<ScrollView
 				horizontal
 				showsHorizontalScrollIndicator={false}
-				contentContainerStyle={{ padding: 10 }}
+				contentContainerStyle={{ padding: 10, marginVertical: 16 }}
 			>
 				{tags?.map((tg, idx) => (
-					<Chip key={idx} style={{ margin: 5 }} onPress={() => openTag(tg)}>
-						{tg.name} | {(tg as VNTag)?.rating?.toFixed(1)}
-					</Chip>
+					<Tag tag={tg as VNTag} openTag={() => openTag(tg)} key={idx} />
+					// 	{tg.name} | {(tg as VNTag)?.rating?.toFixed(1)}
+					// </Tag>
 				))}
 			</ScrollView>
 			<TagDescDialog tag={currentTag} visible={vis} onDismiss={() => setVis(false)} />

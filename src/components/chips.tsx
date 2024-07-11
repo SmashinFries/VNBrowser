@@ -7,6 +7,7 @@ export const PlatformChip = ({ platform }: { platform: keyof typeof PlatformsEnu
 		<Chip
 			icon={() => <PlatformSVG name={platform} height={14} width={14} />}
 			style={{ marginHorizontal: 5 }}
+			mode={'outlined'}
 		>
 			{PlatformsEnum[platform as keyof typeof PlatformsEnum] ?? platform}
 		</Chip>
