@@ -1,20 +1,11 @@
-import { Stack, withLayoutContext } from 'expo-router';
-import {
-	adaptNavigationTheme,
-	Avatar,
-	Icon,
-	MD3DarkTheme,
-	MD3LightTheme,
-} from 'react-native-paper';
+import { withLayoutContext } from 'expo-router';
+import { Avatar, Icon } from 'react-native-paper';
 import {
 	MaterialBottomTabNavigationOptions,
 	createMaterialBottomTabNavigator,
 } from 'react-native-paper/react-navigation';
 import { useTranslation } from 'react-i18next';
 import { useUserAuthStore } from '@/store/store';
-import { useThemeStore } from '@/store/theme';
-import { useMaterial3Theme } from '@pchmn/expo-material3-theme';
-import { DefaultTheme, DarkTheme as NavDarkTheme } from '@react-navigation/native';
 import { useAppTheme } from '@/providers/theme';
 
 const { Navigator } = createMaterialBottomTabNavigator();
