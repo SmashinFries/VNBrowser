@@ -35,16 +35,31 @@ const BottomTabLayout = () => {
 	const { LightTheme, DarkTheme } = adaptNavigationTheme({
 		reactNavigationLight: DefaultTheme,
 		reactNavigationDark: NavDarkTheme,
-		materialDark: { ...MD3DarkTheme, colors: theme.dark },
-		materialLight: { ...MD3LightTheme, colors: theme.light },
 	});
 
+	const CombinedDefaultTheme = {
+		...MD3LightTheme,
+		...LightTheme,
+		colors: {
+			...MD3LightTheme.colors,
+			...LightTheme.colors,
+		},
+	};
+
+	const CombinedDarkTheme = {
+		...MD3DarkTheme,
+		...DarkTheme,
+		colors: {
+			...MD3DarkTheme.colors,
+			...DarkTheme.colors,
+		},
+	};
 	return (
 		<MaterialBottomTabs
 			initialRouteName="explore"
 			labeled={true}
 			shifting={true}
-			theme={isDarkMode ? DarkTheme : LightTheme}
+			theme={isDarkMode ? CombinedDarkTheme : CombinedDefaultTheme}
 		>
 			<MaterialBottomTabs.Screen name="index" redirect={true} />
 			<MaterialBottomTabs.Screen
