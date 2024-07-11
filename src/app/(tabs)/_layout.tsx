@@ -26,7 +26,7 @@ const BottomTabLayout = () => {
 			initialRouteName="explore"
 			labeled={true}
 			shifting={true}
-			barStyle={{ backgroundColor: colors.elevation.level2 }}
+			theme={{ colors: colors }}
 		>
 			<MaterialBottomTabs.Screen name="index" redirect={true} />
 			<MaterialBottomTabs.Screen
