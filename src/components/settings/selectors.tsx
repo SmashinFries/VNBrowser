@@ -1,7 +1,7 @@
 import { useAppTheme, useThemeContext } from '@/providers/theme';
 import { SettingsState, useSettingsStore } from '@/store/store';
 import { useThemeStore } from '@/store/theme';
-import { useMemo, useState } from 'react';
+import { useCallback, useMemo, useState } from 'react';
 import { Pressable, ScrollView, View } from 'react-native';
 import {
 	Dialog,
@@ -55,7 +55,7 @@ const ListItemSwitch = ({
 
 export const ThemeColorSelector = () => {
 	const { themeColor, setThemeColor } = useThemeStore();
-	const { updateTheme } = useThemeContext();
+	const { updateTheme, resetTheme } = useThemeContext();
 	const [isVis, setIsVis] = useState(false);
 	const [color, setColor] = useState(themeColor ?? '#FFFF');
 
@@ -64,6 +64,14 @@ export const ThemeColorSelector = () => {
 	const onSelectColor = ({ hex }: returnedResults) => {
 		setColor(hex);
 	};
+
+	const onReset = useCallback(() => {
+		resetTheme();
+		// wait for theme to reset
+		setTimeout(() => {
+			setColor(colors.primary);
+		}, 1000);
+	}, [colors]);
 
 	const onDismiss = () => setIsVis(false);
 	const onApply = (color: string) => {
@@ -101,20 +109,22 @@ export const ThemeColorSelector = () => {
 							onComplete={onSelectColor}
 						>
 							<Preview />
-							<Panel1 style={{ marginVertical: 5 }} />
+							{/* <Panel1 style={{ marginVertical: 5 }} /> */}
 							<HueSlider style={{ marginVertical: 10 }} />
 							<Swatches
 								swatchStyle={{ borderRadius: 8, elevation: 8 }}
-								colors={['#ff0000', '#00faff', '#14e93a', '#e55f8d']}
+								colors={['#ff0000', '#00faff', '#00FF2D', '#e55f8d']}
 							/>
-							<InputWidget
+							{/* <InputWidget
 								inputTitleStyle={{ color: colors.onSurface }}
 								inputStyle={{ color: colors.onSurface }}
 								formats={['HEX', 'RGB']}
 								disableAlphaChannel
-							/>
+							/> */}
 						</ColorPicker>
-						{/* <Button mode="outlined" onPress={() => setColor()}>Select System Color</Button> */}
+						<Button mode="outlined" onPress={() => onReset()}>
+							Use System Theme
+						</Button>
 					</Dialog.Content>
 					<Dialog.Actions>
 						<Button onPress={onDismiss}>Cancel</Button>
