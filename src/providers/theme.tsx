@@ -43,27 +43,9 @@ export function Material3ThemeProvider({
 	const { LightTheme, DarkTheme } = adaptNavigationTheme({
 		reactNavigationLight: NavigationDefaultTheme,
 		reactNavigationDark: NavigationDarkTheme,
+		materialDark: { ...MD3DarkTheme, colors: theme.dark },
+		materialLight: { ...MD3LightTheme, colors: theme.light },
 	});
-
-	const CombinedDefaultTheme = {
-		...MD3LightTheme,
-		...LightTheme,
-		colors: {
-			...MD3LightTheme.colors,
-			...LightTheme.colors,
-			...theme.light,
-		},
-	};
-
-	const CombinedDarkTheme = {
-		...MD3DarkTheme,
-		...DarkTheme,
-		colors: {
-			...MD3DarkTheme.colors,
-			...DarkTheme.colors,
-			...theme.dark,
-		},
-	};
 
 	const paperTheme = useMemo(
 		() =>
@@ -85,7 +67,7 @@ export function Material3ThemeProvider({
 	return (
 		<Material3ThemeProviderContext.Provider value={{ theme, updateTheme, resetTheme }}>
 			<PaperProvider theme={paperTheme} {...otherProps}>
-				<ThemeProvider value={isDarkMode ? CombinedDarkTheme : CombinedDefaultTheme}>
+				<ThemeProvider value={isDarkMode ? DarkTheme : LightTheme}>
 					{children}
 				</ThemeProvider>
 			</PaperProvider>

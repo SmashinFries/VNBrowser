@@ -15,6 +15,7 @@ import { useUserAuthStore } from '@/store/store';
 import { useThemeStore } from '@/store/theme';
 import { useMaterial3Theme } from '@pchmn/expo-material3-theme';
 import { DefaultTheme, DarkTheme as NavDarkTheme } from '@react-navigation/native';
+import { useAppTheme } from '@/providers/theme';
 
 const { Navigator } = createMaterialBottomTabNavigator();
 
@@ -27,9 +28,15 @@ export const MaterialBottomTabs = withLayoutContext<
 const BottomTabLayout = () => {
 	const [t, i18n] = useTranslation('titles');
 	const { vndb } = useUserAuthStore();
+	const { colors } = useAppTheme();
 
 	return (
-		<MaterialBottomTabs initialRouteName="explore" labeled={true} shifting={true}>
+		<MaterialBottomTabs
+			initialRouteName="explore"
+			labeled={true}
+			shifting={true}
+			barStyle={{ backgroundColor: colors.elevation.level2 }}
+		>
 			<MaterialBottomTabs.Screen name="index" redirect={true} />
 			<MaterialBottomTabs.Screen
 				name="explore"
