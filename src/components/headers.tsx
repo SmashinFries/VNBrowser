@@ -205,6 +205,7 @@ export const MoreHeader = () => {
 					paddingBottom: 20,
 					paddingLeft: left,
 					paddingRight: right,
+					backgroundColor: colors.background,
 				}}
 			>
 				{/* <Image
