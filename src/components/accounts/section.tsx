@@ -23,7 +23,6 @@ export const VNDBAuthSection = ({ showTitle = true }: VNDBAuthSectionProps) => {
 		<View
 			style={{
 				flex: 1,
-				// backgroundColor: colors.surfaceContainer,
 				justifyContent: 'flex-start',
 				paddingTop: 20,
 				paddingHorizontal: 10,
@@ -138,7 +137,11 @@ export const VNDBAuthSection = ({ showTitle = true }: VNDBAuthSectionProps) => {
 							>
 								<Image
 									source={{ uri: vndb.banner ?? undefined }}
-									style={{ height: 100, aspectRatio: 16 / 9 }}
+									style={{
+										height: 100,
+										width: undefined,
+										aspectRatio: 16 / 9,
+									}}
 								/>
 								<Button>Update Banner</Button>
 							</Pressable>
