@@ -6,34 +6,31 @@ import { TagDialog } from '../dialogs';
 import { Tag } from '../tag';
 
 type TagViewProps = {
-    tags: VNTag[] | null;
+	tags: VNTag[] | null;
 };
 export const TagView = ({ tags }: TagViewProps) => {
-    const [currentTag, setCurrentTag] = useState<VNTag | null>(tags ? tags[0] : null);
-    const [visible, setVisible] = useState(false);
-    const openTag = (tag: VNTag) => {
-        // if (tag.category === 'ero' && !showNSFW) return;
-        setCurrentTag(tag);
-        setVisible(true);
-    };
+	const [currentTag, setCurrentTag] = useState<VNTag | null>(tags ? tags[0] : null);
+	const [visible, setVisible] = useState(false);
+	const openTag = (tag: VNTag) => {
+		// if (tag.category === 'ero' && !showNSFW) return;
+		setCurrentTag(tag);
+		setVisible(true);
+	};
 
-    // const { showNSFW } = useAppSelector((state) => state.persistedSettings);
+	// const { showNSFW } = useAppSelector((state) => state.persistedSettings);
 
-    const closeTag = () => setVisible(false);
+	const closeTag = () => setVisible(false);
 
-    return (
-        <View style={{ marginVertical: 15 }}>
-            <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-                {tags?.map(
-                    (tag, index) =>
-                        index < 21 && (
-                            <Tag key={index} allowAdult={false} tag={tag} openTag={openTag} />
-                        ),
-                )}
-            </ScrollView>
-            <Portal>
-                {tags && <TagDialog visible={visible} onDismiss={closeTag} tag={currentTag} />}
-            </Portal>
-        </View>
-    );
+	return (
+		<View style={{ marginVertical: 15 }}>
+			<ScrollView horizontal showsHorizontalScrollIndicator={false}>
+				{tags?.map(
+					(tag, index) => index < 21 && <Tag key={index} tag={tag} openTag={openTag} />,
+				)}
+			</ScrollView>
+			<Portal>
+				{tags && <TagDialog visible={visible} onDismiss={closeTag} tag={currentTag} />}
+			</Portal>
+		</View>
+	);
 };
