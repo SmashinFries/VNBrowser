@@ -37,12 +37,33 @@ export function Material3ThemeProvider({
 		fallbackSourceColor,
 	});
 
+	// PLEASE HELP :( THEMES WORK IN DEV BUILD BUT NOT PRODUCTION
+	// This led to this abomination
+
 	const { LightTheme, DarkTheme } = adaptNavigationTheme({
 		reactNavigationLight: NavigationDefaultTheme,
 		reactNavigationDark: NavigationDarkTheme,
-		materialDark: { ...MD3DarkTheme, colors: theme.dark },
-		materialLight: { ...MD3LightTheme, colors: theme.light },
 	});
+
+	const CombinedDefaultTheme = {
+		...MD3LightTheme,
+		...LightTheme,
+		colors: {
+			...MD3LightTheme.colors,
+			...LightTheme.colors,
+			...theme.light,
+		},
+	};
+
+	const CombinedDarkTheme = {
+		...MD3DarkTheme,
+		...DarkTheme,
+		colors: {
+			...MD3DarkTheme.colors,
+			...DarkTheme.colors,
+			...theme.dark,
+		},
+	};
 
 	const paperTheme = useMemo(
 		() =>
@@ -64,7 +85,7 @@ export function Material3ThemeProvider({
 	return (
 		<Material3ThemeProviderContext.Provider value={{ theme, updateTheme, resetTheme }}>
 			<PaperProvider theme={paperTheme} {...otherProps}>
-				<ThemeProvider value={isDarkMode ? DarkTheme : LightTheme}>
+				<ThemeProvider value={isDarkMode ? CombinedDarkTheme : CombinedDefaultTheme}>
 					{children}
 				</ThemeProvider>
 			</PaperProvider>

@@ -27,40 +27,9 @@ export const MaterialBottomTabs = withLayoutContext<
 const BottomTabLayout = () => {
 	const [t, i18n] = useTranslation('titles');
 	const { vndb } = useUserAuthStore();
-	const { isDarkMode, isPureBlackMode, themeColor, setThemeColor } = useThemeStore();
-	const { theme, updateTheme, resetTheme } = useMaterial3Theme({
-		sourceColor: themeColor,
-	});
 
-	const { LightTheme, DarkTheme } = adaptNavigationTheme({
-		reactNavigationLight: DefaultTheme,
-		reactNavigationDark: NavDarkTheme,
-	});
-
-	const CombinedDefaultTheme = {
-		...MD3LightTheme,
-		...LightTheme,
-		colors: {
-			...MD3LightTheme.colors,
-			...LightTheme.colors,
-		},
-	};
-
-	const CombinedDarkTheme = {
-		...MD3DarkTheme,
-		...DarkTheme,
-		colors: {
-			...MD3DarkTheme.colors,
-			...DarkTheme.colors,
-		},
-	};
 	return (
-		<MaterialBottomTabs
-			initialRouteName="explore"
-			labeled={true}
-			shifting={true}
-			theme={isDarkMode ? CombinedDarkTheme : CombinedDefaultTheme}
-		>
+		<MaterialBottomTabs initialRouteName="explore" labeled={true} shifting={true}>
 			<MaterialBottomTabs.Screen name="index" redirect={true} />
 			<MaterialBottomTabs.Screen
 				name="explore"
