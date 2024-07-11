@@ -6,7 +6,7 @@ import { Stack, router } from 'expo-router';
 import '../i18n';
 import { useEffect } from 'react';
 import { useThemeStore } from '../store/theme';
-import { StatusBar, setStatusBarStyle } from 'expo-status-bar';
+import { StatusBar, setStatusBarStyle, setStatusBarTranslucent } from 'expo-status-bar';
 import { Material3ThemeProvider } from '../providers/theme';
 import { Toaster } from 'burnt/web';
 import { useSettingsStore } from '@/store/store';
@@ -26,6 +26,10 @@ const RootLayout = () => {
 	useEffect(() => {
 		setStatusBarStyle(isDarkMode ? 'light' : 'dark', true);
 	}, [isDarkMode]);
+
+	useEffect(() => {
+		setStatusBarTranslucent(true);
+	}, []);
 
 	return (
 		<QueryClientProvider client={queryClient}>
@@ -49,7 +53,7 @@ const RootLayout = () => {
 						</AnimatedStack>
 					</BottomSheetModalProvider>
 				</GestureHandlerRootView>
-				<StatusBar style={isDarkMode ? 'light' : 'dark'} translucent />
+				{/* <StatusBar translucent /> */}
 				<Toaster position="bottom-right" />
 			</Material3ThemeProvider>
 		</QueryClientProvider>

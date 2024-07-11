@@ -28,7 +28,6 @@ import { useTranslation } from 'react-i18next';
 import { ExternalLinks, IntensityLevelEnum, LanguageEnum, PlatformsEnum } from '@/api/vndb/schema';
 import { TagTraitChip } from '../filter/buttons';
 import _ from 'lodash';
-import { setStatusBarStyle } from 'expo-status-bar';
 import Slider from '@react-native-community/slider';
 import { LinearGradient } from 'expo-linear-gradient';
 import { Accordion } from '../accordion';
