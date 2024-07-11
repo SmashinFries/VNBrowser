@@ -93,6 +93,7 @@ const SearchPage = () => {
 					estimatedItemSize={100}
 					onEndReached={() => data?.pages[0].more && fetchNextPage()}
 					onEndReachedThreshold={0.75}
+					keyboardDismissMode="on-drag"
 					// onEndReached={() => console.log('Reached end:', data?.pages[0].more)}
 				/>
 			</View>
