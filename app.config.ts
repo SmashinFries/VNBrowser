@@ -37,6 +37,11 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
 				],
 			},
 		],
+		permissions: [
+			'REQUEST_INSTALL_PACKAGES',
+			'READ_EXTERNAL_STORAGE',
+			'WRITE_EXTERNAL_STORAGE',
+		],
 	},
 	web: {
 		favicon: './assets/favicon.png',
