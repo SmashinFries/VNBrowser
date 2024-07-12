@@ -1,36 +1,28 @@
 import { useState } from 'react';
 import Constants from 'expo-constants';
-import { sendToast } from '@/utils/toast';
+import axios from 'axios';
+import { GithubReleaseResponse } from '../types';
+import { Platform } from 'react-native';
 
-const RELEASE_URL = 'https://api.github.com/repos/SmashinFries/VNBrowser/releases';
+// const REPO_URL = 'https://api.github.com/repos/KuzuLabz/AniThemes';
+const REPO_URL = 'https://api.github.com/repos/SmashinFries/VNBrowser';
 
-export const useAppUpdater = () => {
-	const [isCheckingUpdates, setIsCheckingUpdates] = useState(false);
-	const [updateLink, setUpdateLink] = useState<string | null>(null);
-	const [showUpdateDialog, setShowUpdateDialog] = useState(false);
-
-	const onUpdateDialogDismiss = () => setShowUpdateDialog(false);
+const useAppUpdates = () => {
+	const [updateDetails, setUpdateDetails] = useState<GithubReleaseResponse[0] | null>(null);
 
 	const checkForUpdates = async () => {
-		setIsCheckingUpdates(true);
-		const results = await fetch(RELEASE_URL);
-		const jsonResult = await results?.json();
-		const newestVersion = jsonResult[0]?.tag_name ?? null;
+		const { data } = await axios.get<GithubReleaseResponse>(REPO_URL + '/releases');
+		const newestVersion = data[0]?.tag_name ?? null;
 
 		if (newestVersion && newestVersion !== Constants?.expoConfig?.version) {
-			setUpdateLink(jsonResult[0]?.assets[0]?.browser_download_url);
-			setShowUpdateDialog(true);
+			setUpdateDetails(data[0]);
+			return true;
 		} else {
-			sendToast('No updates available', 5);
+			return false;
 		}
-		setIsCheckingUpdates(false);
 	};
 
-	return {
-		checkForUpdates,
-		onUpdateDialogDismiss,
-		isCheckingUpdates,
-		updateLink,
-		showUpdateDialog,
-	};
+	return { updateDetails, checkForUpdates };
 };
+
+export default useAppUpdates;
