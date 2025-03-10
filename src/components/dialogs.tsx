@@ -205,7 +205,7 @@ export const TagDescDialog = ({ tag, visible, onDismiss }: TagDescDialogProps) =
 				)}
 				<Dialog.ScrollArea>
 					<ScrollView>
-						{(tag as VNTag)?.rating && (
+						{!!(tag as VNTag)?.rating && (
 							<Section icon="format-list-numbered">
 								<Text>{(tag as VNTag)?.rating.toFixed(1)}</Text>
 								{/* 1.2 / 3 x 100% = 40% */}
@@ -215,7 +215,7 @@ export const TagDescDialog = ({ tag, visible, onDismiss }: TagDescDialogProps) =
 								/>
 							</Section>
 						)}
-						{(tag as VNTag)?.category && (
+						{!!(tag as VNTag)?.category && (
 							<Section icon="folder-outline">
 								<Text style={{ paddingVertical: 5 }}>
 									{VNTagCategoryEnum[(tag as VNTag)?.category]}

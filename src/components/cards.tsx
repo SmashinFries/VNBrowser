@@ -75,7 +75,7 @@ export const VNCard = (props: VNCardProps) => {
 
 	return (
 		<Pressable
-			onPress={props.navigate && props.navigate}
+			onPress={() => props.navigate?.()}
 			onLongPress={() => setIsBlurred((prev) => !prev)}
 			android_ripple={
 				props.navigate ? { color: colors.primary, foreground: true } : undefined

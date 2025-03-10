@@ -133,7 +133,7 @@ export const Accordion = ({
 					<View
 						style={{ flexDirection: 'row', paddingVertical: 13, alignItems: 'center' }}
 					>
-						{left && left}
+						{left}
 						<View style={[{ paddingLeft: 16 }, { flex: 1, justifyContent: 'center' }]}>
 							<Text
 								selectable={false}

@@ -157,7 +157,9 @@ export const VNDBAuthSection = ({ showTitle = true }: VNDBAuthSectionProps) => {
 								mode="contained"
 								onPress={() =>
 									openWebBrowser(`https://vndb.org/${vndb.userID}/edit#api`, {
-										onComplete: () => submitVNDBToken(),
+										onComplete: async () => {
+											await submitVNDBToken();
+										},
 									})
 								}
 							>

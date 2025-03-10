@@ -11,12 +11,14 @@ export const useUserAuth = () => {
 
     const openTokenPage = (setToken: (txt: string) => void) => {
         openWebBrowser('https://vndb.org/u/tokens', {
-            onComplete: async () => {
-                // Doesn't always work :\
-                const copiedText = await Clipboard.getStringAsync();
-                if (copiedText.includes('-')) {
-                    setToken(copiedText);
-                }
+            onComplete: () => {
+				void (async () => {
+					// Doesn't always work :\
+					const copiedText = await Clipboard.getStringAsync();
+					if (copiedText.includes('-')) {
+						setToken(copiedText);
+					}
+				})();
             },
         });
     };

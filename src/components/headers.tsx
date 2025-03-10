@@ -184,10 +184,10 @@ export const CharacterFilterHeader = ({
 			<Appbar.Content title={title} titleStyle={{ textTransform: 'capitalize' }} />
 			<Appbar.Action
 				icon={'trash-can-outline'}
-				onPress={onRemove && onRemove}
+				onPress={() => onRemove?.()}
 				disabled={!onRemove}
 			/>
-			<Appbar.Action icon={'check'} onPress={onApply && onApply} disabled={!onApply} />
+			<Appbar.Action icon={'check'} onPress={() => onApply?.()} disabled={!onApply} />
 		</Appbar.Header>
 	);
 };
