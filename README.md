@@ -1,28 +1,32 @@
 # VNBrowser
+<div>
+    <img alt="Android" src="https://img.shields.io/badge/Android-grey?style=flat-square&logo=android" />
+    <img alt="Windows" src="https://img.shields.io/badge/Windows-grey?style=flat-square&logo=data%3Aimage%2Fwebp%3Bbase64%2CUklGRrILAABXRUJQVlA4WAoAAAAYAAAAPwEAPwEAQUxQSEEGAAABGUVt20Bqvyl%2FwjshRPR%2FAtRmJIt2Q5MASIwvkpBtlxYRFfv%2F3VZOeu%2B99x4emgU0nKwiC%2Bg9m6hL6HUHvYf33ntPgK%2F8pvr9p9l%2FJBHDCwRTtIAncNnVOTG8xHzEn4jYX8BQwAsYcQsIKmW6iOEULcA%2BJw8KGE6J%2BIhETAAESXLjNru6Ja8RWoJBgM4DdovgY8t%2FLCvHfg5xtBOc5gxn%2BvUYp4AWdrf6YEc6zknUqbwD%2FOJLPyDE770HTNjD6kNVxztZqI5yEPzazxBU9M3SC3jI7f3RtwhWensyLS9QIT%2FC5CffAZfeYeJAZSfKV%2F9oFlp6B3K9VGXF4fY1AJhenKosjfYxGgDMRbB3%2Biy09HzTjYMwK%2FLeYCHrCZp%2B9SauF4QZrxYV3%2BpPozGomJReoE7H7dXgCoNEr7QdlYVeV4dW4I2dYeXwLDtWF78hgaW3l35k8GybUfqroKXnm1FcZNtSd2%2B7dHDlsywvCLeFeW80gJhzVduy2ARXWgaTbjTm2bagTFZJgPmINPxV5Z3BCFq3ervP%2BIhxl2agpSdMN%2BbZr1kxdnUEGC9yqSx0qn5bINR4uasBy0d0utZHPocQY6dr2UZQFMHYvcr9YPVtblr2OC0Kuz83mCWBiHoPSkn7sorTgsfD9gBWcZDfG%2BZxUHDH6sitEliO1bWdgqeViVthFT76k2FlpJzHZQKtrEy763oB50VkQstBiN4wH6dKGWVbU8%2BF1eiyIuRxV2zVoZWwtzxHhbya0C4JrgEEXqAynq8ezRCw9CY1vW087%2BmzwNITq0svCDNlr9ZnoFYi6i4GJaJk%2BukhRwbPfnUseNXBEfFCQfarsnuzI0Kg8XFbCWFHD6FHErj0nz74IMAHbPmPJjwQAnxTAj5gy380nUDLf2DL%2F3HrBD7IZRoZlqWAaFFJH37jbpbvLBESEiKxS80eITFESQwlY4AkKam2JKlZ6rXjqNe3g1FCKVFHxkDUmT0pEXVa1DK7pLmONO2nXTImaCyQiFTXACQiFESs3aTFV6bA0%2B4gkWkokog6alpuhEwTk45S27o6sU1OUqJEqf142A32dcgYIEggoUCBzF5tKWrHfRR1WqiO0sLm9XwmkKm9jnQWbCOiJOY4Se2NUDMASTJ7RFLoQmpuOcm0gKYdpEDJfKyCEJFpwan5gSlwL2zovF3rj98QTt37Ju0bQAn3SGpzUm%2BWVK%2FrrZMgnbGB2G43kSQpmXQCY4T2Om3qhHkDIaUgSUJKRJLs3zJVAuR5f04juFJ70Rp9TuxxwjpGsPZMATG4wkPqm3G2vIE9Y%2FSkBdHciyMHCdbF3M12jhoXBjY2QpomNi7MNshk9nIsAwxQLBupJetN%2F%2F7tB4FvkvAbzLosttgNvtlfYr7B0F8yjtsBGHc2fcnb6s1X4k6RALPu0vQl70jwm%2FTmLz88WQoXdya4YjHlUj%2BIFT%2FyZkuyQgS%2BhWyWUDdt9kcdgP2eFfr4hUPMCdjhEg5XPI2jYccHWnHyCYjoT6wjGQVXhWGXk0QArLgrV74Na%2Bz1ozjgigde1O%2BAzJvM%2FMv%2Bqsa0KidVKjWqcpJAbjhqr59rHgO32xEIN86Zlu0UiqdGXq4G3WOwehiNU6UKx3PNNuQeg7bpekGhVBrnw54PODl%2FMqyMQqnCsUszQcCx14%2FGKQ95ELvdBdiDkgAZ3DfXdb2Ahyod5wskZCW45G1907IdHoaFATynLCZlVZPjTjVc7cMu1LINnoU8qMpG%2FRTIRtGBKm2HZ5ky7GFPNFhQg3kKLDtQ2zJuuCOEHP2J670FdJArp976xL9mz0fIccPFjFSpwrGtSSJAhs%2B8AhGx04%2FGAduB6rdBJjf7MW2WznOKUKXjCnaRv7%2B6zI1CheBMiywkAiMt8qFdhJDzJmZpOzxUhQG%2B%2FnyZG1yF3LHLCfCccm6kKuOBZ5kJ6CpB%2FSguVKgg%2BN0WpyoM0zjqtiEnl3StOFCZKsZRH3ZypuUFKgtrch0BukjL8lLFFIL6bfjJZWExBp%2Bc66VqG%2BNM5mDnk904DbeF6TjqJqALtMxoXNTkYhd2qaV2Nzd4loWpbU18yMl1hpWjsm0qqMqegF1KxE7VtowbOdTC1a3%2FMQFCP3eys5xjkwO34u7nXoXgY8t%2FLLEAAQBWUDggiAQAAPAuAJ0BKkABQAE%2BdTqbSCSjoqEmdGlIkA6JY27hdp4AGabMX%2Bj1rnwP9o%2Fb3nC%2BAZib11s3%2Fh%2F3j3Afln0AOk5%2FH%2F8%2F6gP0x%2FZH35v4B6gP7f6VXUAegB%2B0fpk%2FuH8JH7xfrl7agA%2BZmZmZmZmZmZmZmZmZmZhU5PYjQ2IFbjT43LFGOSaSzpfrtjMPMjGZlotyHIGYjC2KsRvMzMzLgPcclX8vwlkPmZmZhE9xuWMygt2Td3d3cwaOcbMzDpe42ZmZmLceDXd3cB6NXd3d3a9MPSd3de%2Fwk7u7u7JVcTSRQ0NDQyHRlK3BSuLi4uLi4nEOtOAVOMxeLEifsQ8oPQqcZi8faXpwzMuYB1xmZmZe9FKumZlaQUWZmZmYDN62P%2F%2Fy0zsf%2F%2F%2F%2FrmWh3VVSvYjuqqqqmrWc0YZl5TdmVVVVUiGz3rnLf%2FLTOx%2F%2F%2F%2F%2BuagP8mIZl6Szn5Sj%2F4NMzMzCKCREREaf0T3YJ8qH%2Bl9IhtAah8zMzMzMzNETWK6RIAAD%2B8oxYuWl8J6DPY%2FDSAXjcXZmgh%2Fmu9AFTQdx6yoCeFKiaoWU84jBu%2BHsALofBbh0xEwZRLEM0sSjtd2o%2FWzRnJlXVUe8jeP%2BJOwcq7loB0OfhJ9RTe2BU5558cI4S1Fk0xAtO1rfthNEkbep%2B9iG551FElarBcize4boCdWX3wDYE8cIc8xwBF0Hw2CWAclyGYEdwm3pATw3k7pwR2fGd5l%2FsbgeIoL9xobEoDsMrezTktAjKvafJtHv%2BdLDoyjKt%2B0ZXHjqa6VYh3M9zT5Rq52P4z7UXUXwiti%2FJCj73cVsW%2FbeMOx8q6kZLEo8lWao8gSJxi1IbLwZqGQoyr9mrAPQDE5jM8bWtscMZPqKb2wnrJP62%2F7A%2FZ1l0chSPDrAFGtnZQAcVCoRvODI%2FbMF3tXtbJoUhVFksMpG0OTobG6RSwwC4qBomieYGi83Yu%2BeipVBc9pjshFy3IrTHXC%2FkaQ3zrlnSCtLN5LT3VPsNagsiPRFtZ26IP809Tz5Gnn%2BW6S5s%2BlEgdiEA3FfeRlO2PQApoanrNcVH%2FdApZjIu%2FypBCkbhvKmveudK2es2dAG7EHly3p6VAK4zq9%2BEN4RQNHW9Pr6761K1b5XKuSybkJDzThVbj60I0utg0y72jqS3Ox%2FGDQ86LXsJ3mdbPlogAwVTx8NAzVX8CTJTjjgJLscbvYQBAHrXlTu%2FyAC3FfRt8NYfSTzbaxW%2FUUeWIuCYfHZ8aaA1kQhhhiKI6Z%2FOjmcf8EZW0AKvutubdfFCj2rmEDbgBg4c40ovAB1DTTfrHNDPyhN9d77GjfnDNxhmqrUYlE8v1ODuJQ2k78MHxaVLKZgu4CreapLvQSb1Yzc1dd23lK6gx3hyN2vN%2FU7uGCE6KV%2Be6jqDSAAANzuDV93a%2Bluqw7If5eLkrfAFhC5%2FQvFmrLfWi7u5l3EqtC7QOnR2LzMCAzvnDCI059WwRPqHxe%2FNKezDfRfy6CBV0e7upM36hfWE9hoPJBS34KmtYgfh7H88DuEu2V99zEyHoAzpoAAAAAAARVhJRroAAABFeGlmAABJSSoACAAAAAYAEgEDAAEAAAABAAAAGgEFAAEAAABWAAAAGwEFAAEAAABeAAAAKAEDAAEAAAACAAAAEwIDAAEAAAABAAAAaYcEAAEAAABmAAAAAAAAAEgAAAABAAAASAAAAAEAAAAGAACQBwAEAAAAMDIxMAGRBwAEAAAAAQIDAACgBwAEAAAAMDEwMAGgAwABAAAA%2F%2F8AAAKgBAABAAAAQAEAAAOgBAABAAAAQAEAAAAAAAA%3D" />
+    <img alt="MacOS" src="https://img.shields.io/badge/MacOS-grey?style=flat-square&logo=apple" />
+    <img alt="Linux" src="https://img.shields.io/badge/Linux-grey?style=flat-square&logo=linux" />
+</div>
 
-A simple android app for [VNDB](https://www.vndb.org).
+A cross-platform app for [VNDB](https://www.vndb.org).
 
-**Currently in alpha! There will likely be bugs, crashes, and performance issues!**
+>**⚠️ A major update with new features and improvements is in the works! It will support Android and desktop platforms. ⚠️**
 
-**This project will move to [KuzuLabz](https://github.com/KuzuLabz) when stable.**
+> This project will move to [KuzuLabz](https://github.com/KuzuLabz) when stable.
 
-*-Insert screenshots here-*
-
-## ⚠️ Help needed! ⚠️
-1. The app logo is a placeholder (unless everyone likes it). If you can make a better one and don't mind sharing, please let me know 🤗
-2. I'm not sure how to design a good UX for searching different categories (vn, characters, staff, etc). [Goraku](https://github.com/KuzuLabz/GorakuSite) has the same issue. Any ideas or app referrences would be appreciated!
 
 ## Features
-- Browse and search visual novels with many filter options
-- View visual novel details
-- View / Manage your lists
-- Customizable theme and preferences
-  
-### Planned Features
-- Custom lists
-- Staff detail screen
-- Dev / Publisher lists
-- Search characters and staff
-- Sync with other platforms (steam?)
-- iOS IPA
-- Desktop / web version (currently fails due to a dependency with native modules; likely theming)
+- [x] Browse and search visual novels with many filter options
+- [x] View visual novel details
+- [ ] Character / staff detail screen
+- [ ] Search characters and staff
+- [x] Desktop support
+- [x] Offline database
+- [ ] Dev / Publisher lists
+- [ ] View / Manage your labels
+- [ ] Custom lists
+- [ ] Customizable theme and preferences
+- [ ] Sync local db <--> vndb
+- [ ] Sync mobile db <--> desktop db
+- [ ] Launch VNs
+- [ ] VN Overlay (translations / AI ?)
+- [ ] iOS IPA
+
